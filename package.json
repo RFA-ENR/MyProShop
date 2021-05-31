@@ -1,0 +1,27 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "MERN shopping cart app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RFA-ENR/MyProShop.git"
+  },
+  "author": "Rafael Morales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RFA-ENR/MyProShop/issues"
+  },
+  "homepage": "https://github.com/RFA-ENR/MyProShop#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.11",
+    "bcryptjs": "^2.4.3",
+    "express-async-handler": "^1.1.4"
+  }
+}
