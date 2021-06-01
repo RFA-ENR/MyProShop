@@ -5,19 +5,28 @@ import HomeScreen from './screens/HomeScreen';
 import { BrowserRouter, Route } from 'react-router-dom';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
+import { useEffect } from 'react';
+import axios from 'axios';
 
-const App = () => (
-  <BrowserRouter>
-    <Header />
-    <main className="py-3">
-      <Container>
-        <Route path="/" component={HomeScreen} exact />
-        <Route path="/product/:id" component={ProductScreen} />
-        <Route path="/cart/:id?" component={CartScreen} />
-      </Container>
-    </main>
-    <Footer />
-  </BrowserRouter>
-);
+const App = () => {
+    axios.defaults.baseURL = 'http://localhost:5000';
+  useEffect(() => {
+
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <Header />
+      <main className="py-3">
+        <Container>
+          <Route path="/" component={HomeScreen} exact />
+          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/cart/:id?" component={CartScreen} />
+        </Container>
+      </main>
+      <Footer />
+    </BrowserRouter>
+  );
+};
 
 export default App;

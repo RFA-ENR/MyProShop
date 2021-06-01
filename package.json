@@ -18,10 +18,11 @@
   },
   "homepage": "https://github.com/RFA-ENR/MyProShop#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.11",
-    "bcryptjs": "^2.4.3",
-    "express-async-handler": "^1.1.4"
+    "express-async-handler": "^1.1.4",
+    "mongoose": "^5.12.11"
   }
 }
