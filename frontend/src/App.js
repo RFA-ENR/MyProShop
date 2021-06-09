@@ -7,6 +7,7 @@ import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import { useEffect } from 'react';
 import axios from 'axios';
+import LoginScreens from './screens/LoginScreens';
 
 const App = () => {
     axios.defaults.baseURL = 'http://localhost:5000';
@@ -19,9 +20,10 @@ const App = () => {
       <Header />
       <main className="py-3">
         <Container>
-          <Route path="/" component={HomeScreen} exact />
+          <Route path="/login" component={LoginScreens} />
           <Route path="/product/:id" component={ProductScreen} />
-          <Route path="/cart/:id?" component={CartScreen} />
+            <Route path="/cart/:id?" component={CartScreen} />
+            <Route path="/" component={HomeScreen} exact />
         </Container>
       </main>
       <Footer />
