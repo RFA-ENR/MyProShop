@@ -1,40 +1,40 @@
-import React, { useEffect } from 'react';
-import {addToCart, removeFromCart} from '../action/cartActions';
-import { useDispatch, useSelector } from 'react-redux';
-import Message from '../components/Message';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  Row,
+  Col,
+  ListGroup,
+  Image,
+  Form,
   Button,
   Card,
-  Col,
-  Form,
-  Image,
-  ListGroup,
-  ListGroupItem,
-  Row,
-} from 'react-bootstrap';
+} from "react-bootstrap";
+import Message from "../components/Message";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
 
-  const qty = location.search ? Number(location.search.split('=')[1]) : 1;
+  const qty = location.search ? Number(location.search.split("=")[1]) : 1;
+
   const dispatch = useDispatch();
+
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
   useEffect(() => {
-    console.log(productId);
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    dispatch(removeFromCart(id))
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
-    history.push('/login?redirect=shipping')
+    history.push("/login?redirect=shipping");
   };
 
   return (
@@ -88,7 +88,7 @@ const CartScreen = ({ match, location, history }) => {
             ))}
           </ListGroup>
         )}
-      </Col>{' '}
+      </Col>
       <Col md={4}>
         <Card>
           <ListGroup variant="flush">
@@ -102,16 +102,16 @@ const CartScreen = ({ match, location, history }) => {
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
             </ListGroup.Item>
-            <ListGroupItem>
+            <ListGroup.Item>
               <Button
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >
-                Proceed to checkout
+                Proceed To Checkout
               </Button>
-            </ListGroupItem>
+            </ListGroup.Item>
           </ListGroup>
         </Card>
       </Col>
